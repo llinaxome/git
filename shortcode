@@ -1,0 +1,55 @@
+DEMARRAGE :
+Pour les projet avec des submodule lors de l'installe faire :
+"lien ssh de bitbucket" --recursive
+git submodule init
+git submodule update
+Pour ignoré les chmod :
+git filemode
+----------------------------------------------------------------------
+ADD :
+Ajout de fichier dans le commit : 
+git add --all (pour tout les fichier modifié )
+git add cheminDuFichier
+Pour annulé les selection de git add
+git reset HEAD -- chemin
+-----------------------------------------------------------------------
+COMMIT ET PUSH :
+commande pour le commit : 
+git commit -m 'message explicatif du commit'
+Ajouté le commit sur le depot :
+git push
+-----------------------------------------------------------------------
+REBASE :
+Mettre la branche master et mettre la branche tmp a jour 
+Une fois la master a jour on retourne sur la branche tmp et on lance le rebase
+git rebase master
+Il peut y avoir des conflits donc on les résout pui on continue avec :
+git rebase --continue 
+Le rebase terminé on retourne sur la master :
+git co master
+On merge ensuite la branch tmp :
+git merge tmp
+Ensuite il reste plus qu'a commit et push normalement :)
+-----------------------------------------------------------------------
+SUBMODULE :
+- Pour ajouté un submodule : 
+Aller dans le repertoire module et faire 
+git submodule add git@bitbucket.org:axome/...
+- Pour viré un submodule : 
+git submodule deinit modules/<submodule_name>
+Pour ne pas prendre en compte les changement locaux :
+git submodule deinit -f modules/<submodule_name>
+Faire ensuite : 
+git rm modules/<submodule_name>
+Puis pour finir :
+rm -rf .git/modules/modules/<submodule_name>
+On peut maintenant commit la suppression du module
+// technique de Bastie
+git submodule deinit -f -- modules/blockinstagram 
+rm -rf .git/modules/modules/blockinstagram
+git rm -f modules/blockinstagram
+git rm --cached modules/blockinstagram
+-----------------------------------------------------------------------
+MERGE :
+Pour merge un commit specific a la branch :
+Example: git cherry-pick d42c389f
