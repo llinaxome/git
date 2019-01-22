@@ -1,0 +1,13 @@
+Hotfix 
+Faire la modification sur la branch develop
+Faire un git stash
+git l -> vérifier le numero du dernier hotfix
+Créer le hotfix -> git flow hotfix start (numéro hotfix)
+git stash pop
+git add (les modifications)
+git commit
+git flow hotfix finish (numero du hotfix créer ulterieurement)
+- 1er VIM -> :wq
+- 2e VIM -> n° du tag (hotfix)
+- 3e VIM -> :wq
+git fpush
